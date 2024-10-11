@@ -1,0 +1,37 @@
+.landing-animation-container {
+    position: relative;
+    overflow: hidden; /* Prevents items from overflowing */
+    height: 100vh; /* Ensure the container has enough height */
+}
+
+@keyframes vertical-marquee {
+    0% {
+        transform: rotate(-15deg) translateY(-40%); /* Start at the original position */
+    }
+    100% {
+        transform: rotate(-15deg) translateY(-100%); /* Move up to show the first half */
+    }
+}
+
+@keyframes vertical-marquee-down {
+    0% {
+        transform: rotate(-15deg) translateY(-100%); /* Start from the bottom */
+    }
+    100% {
+        transform: rotate(-15deg) translateY(0); /* Move to the original position */
+    }
+}
+
+.animate-marquee {
+    display: flex; /* Ensures items align vertically */
+    flex-direction: column; /* Set flex direction to column */
+    animation: vertical-marquee 20s linear infinite; /* Adjust duration for speed */
+    height: calc(100vh * 3); /* Set height to 3 times the viewport height for seamless animation */
+}
+
+.animate-marquee-down {
+    display: flex; /* Ensures items align vertically */
+    flex-direction: column; /* Set flex direction to column */
+    animation: vertical-marquee-down 20s linear infinite; /* Adjust duration for speed */
+    height: calc(100vh * 3); /* Set height to 3 times the viewport height for seamless animation */
+}

@@ -1,0 +1,36 @@
+@keyframes leftToRight {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+  
+  @keyframes rightToLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-80%);
+    }
+  }
+  
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  
+  h1 {
+    white-space: nowrap;
+  }
+  
+  .animate-left-to-right {
+    display: inline-block;
+    animation: leftToRight 30s linear infinite;
+  }
+  
+  .animate-right-to-left {
+    display: inline-block;
+    animation: rightToLeft 30s linear infinite;
+  }
+  
