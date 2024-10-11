@@ -7,9 +7,9 @@ const PageSideBar = () => {
     const store = useSelector((state) => state.sectionStorage);
 
     const [sections, setSections] = useState({
-        about: store.selectedPage.pages.about || false,
-        product: store.selectedPage.pages.product || false,
-        contact: store.selectedPage.pages.contact || false,
+        about: store.selectedPage.about || false,
+        product: store.selectedPage.product || false,
+        contact: store.selectedPage.contact || false,
     });
 
     const handleCheckboxChange = (section) => {
@@ -30,7 +30,7 @@ const PageSideBar = () => {
                         <input 
                             type="checkbox" 
                             className="rounded-checkbox w-4 h-4" 
-                            checked={sections.about}
+                            checked={sections?.about}
                             onChange={() => handleCheckboxChange("about")} 
                         />
                         <label className="font-[13px]">About</label>
@@ -39,7 +39,7 @@ const PageSideBar = () => {
                         <input 
                             type="checkbox" 
                             className="rounded-checkbox w-4 h-4" 
-                            checked={sections.product}
+                            checked={sections?.product}
                             onChange={() => handleCheckboxChange("product")} 
                         />
                         <label className="font-[13px]">Product</label>
