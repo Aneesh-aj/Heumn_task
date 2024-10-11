@@ -26,9 +26,9 @@ const WebsitePage = () => {
             {font.title}
           </h1>
           <ul className="flex gap-4 text-sm" style={{fontFamily:font?font.siteFont.title:""}}>
-             { pages.about && <li>About</li>}
-             { pages.product &&  <li>Product</li>}
-             { pages.contact &&  <li>contact</li>}
+             { pages?.about && <li>About</li>}
+             { pages?.product &&  <li>Product</li>}
+             { pages?.contact &&  <li>contact</li>}
 
           </ul>
         </div>
