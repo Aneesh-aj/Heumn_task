@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import introsection3 from "../../../assets/introsection2.jpg";
 import IntroLayout from "../../layout/IntroLayout";
+import { useSelector } from "react-redux";
 
 const IntroSectionTwo = () => {
     const [isHovered, setIsHovered] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const font = useSelector((state) => state.sectionStorage.addedFont);
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -21,8 +23,8 @@ const IntroSectionTwo = () => {
                 onMouseLeave={() => setIsHovered(false)}
             >
                 <div className="w-[50%] h-full p-3 flex flex-col justify-center gap-2 ps-10">
-                    <h1 className="text-2xl font-bold">Company Name</h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt aut magnam iusto ratione quidem. Cumque est dolores dolore tcilis. Provident tenetur sint ea.</p>
+                    <h1 className="text-2xl font-bold" style={{fontFamily:font.siteFont? font.siteFont.title : ""}}>{font?.title ? font.title :"Company Name"}</h1>
+                    <p style={{fontFamily:font.siteFont? font.siteFont.font2 : ""}}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt aut magnam iusto ratione quidem. Cumque est dolores dolore tcilis. Provident tenetur sint ea.</p>
                 </div>
                 <div className="w-[50%] h-full flex justify-center p-3">
                     <div 

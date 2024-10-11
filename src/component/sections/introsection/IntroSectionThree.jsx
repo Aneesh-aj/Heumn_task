@@ -28,11 +28,11 @@ const IntroSectionThree = () => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                <h1 className="text-2xl font-bold text-white">{font?.title ? font.title :"Company Name"}</h1>
-                <p className="ps-10 pe-10 text-white">
+                <h1 className="text-2xl font-bold text-white" style={{fontFamily:font.siteFont? font.siteFont.title : ""}}>{font?.title ? font.title :"Company Name"}</h1>
+                <p className="ps-10 pe-10 text-white" style={{fontFamily:font.siteFont? font.siteFont.font1 : ""}}>
                     Lorem,sectetur debitis sed architecto quod vitae ullam repudiandae et, i.
                 </p>
-                <button className="p-2 bg-white text-black text-sm font-bold rounded-3xl shadow-lg">
+                <button className="p-2 bg-white text-black text-sm font-bold rounded-3xl shadow-lg" style={{fontFamily:font.siteFont? font.siteFont.font1 : ""}}>
                     Let's Begin
                 </button>
                 

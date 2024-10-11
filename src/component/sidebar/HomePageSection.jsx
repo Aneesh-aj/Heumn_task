@@ -5,6 +5,7 @@ import { useState } from "react";
 const HomePageSection = () => {
     const dispatch = useDispatch();
     const store = useSelector((state)=>state.sectionStorage)
+    const sectionPage = useSelector((state)=>state.sectionStorage.addedSection)
 
     console.log(" the store",store)
 
@@ -17,20 +18,20 @@ const HomePageSection = () => {
     const handleCheckboxChange = (section) => {
         const newState = { ...sections, [section]: !sections[section] };
         setSections(newState);
-        if (section === "introSection") {
+        if (section === "introSection" && newState.introSection) {
             dispatch(updateSections({
                 sectionName: section,
-                sectionData: { intro1: true } 
+                sectionData: { intro1: true,intro2:false,intro3:false } 
             }));
-        }else if(section =="aboutSection"){
+        }else if(section =="aboutSection" && newState.aboutSection){
             dispatch(updateSections({
                 sectionName: section,
-                sectionData: { about1: true } 
+                sectionData: { about1: true,about2: false } 
             }));
-        }else if(section =="footerSection"){
+        }else if(section =="footerSection" && newState.footerSection){
             dispatch(updateSections({
                 sectionName: section,
-                sectionData: { footer1: true } 
+                sectionData: { footer1: true,footer2:false,footer3:false,footer4:false } 
             }));
         }
         dispatch(setAddedSection(newState));
@@ -46,7 +47,7 @@ const HomePageSection = () => {
                         <input 
                             type="checkbox" 
                             className="rounded-checkbox w-4 h-4" 
-                            checked={sections.introSection}
+                            checked={sectionPage.introSection}
                             onChange={() => handleCheckboxChange("introSection")} 
                         />
                         <label className="font-[13px]">Intro Section</label>
@@ -55,7 +56,7 @@ const HomePageSection = () => {
                         <input 
                             type="checkbox" 
                             className="rounded-checkbox w-4 h-4" 
-                            checked={sections.aboutSection}
+                            checked={sectionPage.aboutSection}
                             onChange={() => handleCheckboxChange("aboutSection")} 
                         />
                         <label className="font-[13px]">About Section</label>
@@ -64,7 +65,7 @@ const HomePageSection = () => {
                         <input 
                             type="checkbox" 
                             className="rounded-checkbox w-4 h-4" 
-                            checked={sections.footerSection}
+                            checked={sectionPage.footerSection}
                             onChange={() => handleCheckboxChange("footerSection")} 
                         />
                         <label className="font-[11px] font-clarkson">Footer Section</label>

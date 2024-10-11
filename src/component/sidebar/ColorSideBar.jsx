@@ -36,7 +36,8 @@ const ColorSideBar = () => {
     const handleSelectPalette = (colors) => {
         setSelectedPalette(colors);
         setSelectedColors(colors);
-        dispatch(setColorPalete(selectedPalette))
+         console.log(colors)
+        dispatch(setColorPalete(colors))
     };
 
     return (

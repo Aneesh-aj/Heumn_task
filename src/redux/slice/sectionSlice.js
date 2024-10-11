@@ -7,10 +7,12 @@ const initialState = {
     title:""
   },
   colorPalete: {
-    color: []
+    color:[]
   },
   selectedPage: {
-    pages: []
+    about: false,
+        product: false,
+        contact: false,
   },
   addedSection: {
     introSection: false,

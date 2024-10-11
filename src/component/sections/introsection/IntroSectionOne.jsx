@@ -27,7 +27,7 @@ const IntroSectionOne = () => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                <h1 className="text-xl font-bold text-white"style={{fontFamily: font?.siteFont ? font.siteFont : "" }} >{font?.title ? font.title :"Company Name"}</h1>
+                <h1 className="text-xl font-bold text-white"style={{fontFamily: font?.siteFont? font.siteFont.title : "" }} >{font?.title ? font.title :"Company Name"}</h1>
                 {isHovered && (
                         <div className="absolute w-full h-[2rem] flex justify-end bottom-2 right-2">
                             <div onClick={openModal} className="bg-white h-full w-[20%] text-center font-medium text-[10px] pt-2 shadow-md rounded-sm items-center hover:bg-gray-50">
