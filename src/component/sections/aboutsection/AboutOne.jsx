@@ -7,7 +7,7 @@ const AboutOne = () => {
     const [isHovered, setIsHovered] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const font = useSelector((state) => state.sectionStorage.addedFont);
-
+    const color = useSelector((state) => state.sectionStorage.colorPalete.color)
     const openModal = () => {
         setIsModalOpen(true);
     };
@@ -20,15 +20,16 @@ const AboutOne = () => {
         <>
             <div
                 className="w-full bg-white h-[50%] flex flex-row-reverse hover:ring-2 ring-blue-500"
+                style={{backgroundColor:color ? color[0]:'white',fontFamily: font?.siteFont? font.siteFont.title : ""}}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                <div className="w-[50%] h-full p-10 flex flex-col gap-5 justify-center bg-gray-100 relative">
-                    <h1 className="text-2xl font-bold text-blue-700" style={{fontFamily: font?.siteFont? font.siteFont.title : "" }} >Who We Are</h1>
-                    <p className="text-sm overflow-hidden" style={{fontFamily:font.siteFont? font.siteFont.font1 : ""}}>
+                <div className="w-[50%] h-full p-10 flex flex-col gap-5 justify-center bg-gray-100 relative" style={{backgroundColor:color?color[0]:"white"}}>
+                    <h1 className="text-2xl font-bold " style={{color:color ? color[1]:"blue" }} >Who We Are</h1>
+                    <p className="text-sm overflow-hidden" style={{color:color ? color[2]:"blue" }}>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum mollitia nihil alias, odit nostrum reiciendis omnis at, fugiat ex rem necessitatibus quia beatae velit doloribus.
                     </p>
-                    <button className="sm:p-1 p-2 bg-blue-500 text-white rounded-xl max-w-[70%] font-semibold shadow-lg">
+                    <button className="sm:p-1 p-2 bg-blue-500 text-white rounded-xl max-w-[70%] font-semibold shadow-lg" style={{fontFamily:font.siteFont? font.siteFont.font1 : "",color:color ? color[2]:"white" ,backgroundColor:color?color[1]:"blue"}} >
                         Learn More
                     </button>
                     {isHovered && (

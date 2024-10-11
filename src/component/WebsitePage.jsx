@@ -15,19 +15,21 @@ const WebsitePage = () => {
 
   const sections = useSelector((state) => state.sectionStorage)
   const font = useSelector((state) => state.sectionStorage.addedFont);
-
-  console.log(" _________", sections)
+  const color = useSelector((state) => state.sectionStorage.colorPalete.color)
+  const pages = useSelector((state)=>state.sectionStorage.selectedPage.pages)
 
   return (
     <>
       <div className="w-[60%] h-[calc(100%-2.5rem)]  overflow-y-auto hide-scrollbar bg-white m-16 shadow-xl  rounded-md relative ">
-        <div className="w-full h-auto  bg-white border p-3 flex justify-between">
-          <h1 style={{ fontFamily: font.headFont ? font.head : "" }}>
+        <div className="w-full h-auto  bg-white border p-3 flex justify-between" style={{backgroundColor:color?color[0]:"white"}}>
+          <h1 style={{ fontFamily: font.headFont ? font.headFont : "" }}>
             {font.title}
           </h1>
-          <ul className="flex gap-4 text-sm">
-            <li>About</li>
-            <li></li>
+          <ul className="flex gap-4 text-sm" style={{fontFamily:font?font.siteFont.title:""}}>
+             { pages.about && <li>About</li>}
+             { pages.product &&  <li>Product</li>}
+             { pages.contact &&  <li>contact</li>}
+
           </ul>
         </div>
         <div className="w-full h-[calc(100%-2.5rem)] overflow-y-auto hide-scrollbar mb-16 p-[2px]">

@@ -7,6 +7,7 @@ const IntroSectionOne = () => {
     const [isHovered, setIsHovered] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const font = useSelector((state) => state.sectionStorage.addedFont);
+    
     const openModal = () => {
         setIsModalOpen(true);
     };

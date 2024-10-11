@@ -7,6 +7,7 @@ const IntroSectionThree = () => {
     const [isHovered, setIsHovered] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const font = useSelector((state) => state.sectionStorage.addedFont);
+    const color = useSelector((state) => state.sectionStorage.colorPalete.color)
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -23,16 +24,16 @@ const IntroSectionThree = () => {
                     backgroundImage: `url(${introsection2})`, 
                     backgroundSize: 'cover', 
                     backgroundPosition: 'center',
-                    fontFamily: font?.siteFont ? font.siteFont : "" 
+                    fontFamily: font? font.siteFont.title: "" 
                 }}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
-                <h1 className="text-2xl font-bold text-white" style={{fontFamily:font.siteFont? font.siteFont.title : ""}}>{font?.title ? font.title :"Company Name"}</h1>
-                <p className="ps-10 pe-10 text-white" style={{fontFamily:font.siteFont? font.siteFont.font1 : ""}}>
+                <h1 className="text-2xl font-bold text-white" >{font?.title ? font.title :"Company Name"}</h1>
+                <p className="ps-10 pe-10 text-white" style={{fontFamily:font.siteFont? font.siteFont.title : ""}}>
                     Lorem,sectetur debitis sed architecto quod vitae ullam repudiandae et, i.
                 </p>
-                <button className="p-2 bg-white text-black text-sm font-bold rounded-3xl shadow-lg" style={{fontFamily:font.siteFont? font.siteFont.font1 : ""}}>
+                <button className="p-3 bg-white text-black text-sm font-bold rounded-3xl shadow-lg" style={{color:color?color[2]:"black",backgroundColor:color?color[0]:'white'}}>
                     Let's Begin
                 </button>
                 

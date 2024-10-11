@@ -7,7 +7,7 @@ const IntroSectionTwo = () => {
     const [isHovered, setIsHovered] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const font = useSelector((state) => state.sectionStorage.addedFont);
-
+    const color = useSelector((state) => state.sectionStorage.colorPalete.color)
     const openModal = () => {
         setIsModalOpen(true);
     };
@@ -18,13 +18,14 @@ const IntroSectionTwo = () => {
     return (
         <>
             <div 
-                className="w-full p-2 h-[40%] bg-white flex relative hover:ring-2 ring-blue-500" 
+                className="w-full p-2 h-[40%] bg-white flex relative hover:ring-2 ring-blue-500"
+                style={{fontFamily:font.siteFont? font.siteFont.title : "",backgroundColor:color?color[0]:"white"}} 
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
                 <div className="w-[50%] h-full p-3 flex flex-col justify-center gap-2 ps-10">
-                    <h1 className="text-2xl font-bold" style={{fontFamily:font.siteFont? font.siteFont.title : ""}}>{font?.title ? font.title :"Company Name"}</h1>
-                    <p style={{fontFamily:font.siteFont? font.siteFont.font2 : ""}}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt aut magnam iusto ratione quidem. Cumque est dolores dolore tcilis. Provident tenetur sint ea.</p>
+                    <h1 className="text-2xl font-bold" style={{color:color?color[1]:'black'}}>{font?.title ? font.title :"Company Name"}</h1>
+                    <p style={{color:color?color[2]:'black'}}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt aut magnam iusto ratione quidem. Cumque est dolores dolore tcilis. Provident tenetur sint ea.</p>
                 </div>
                 <div className="w-[50%] h-full flex justify-center p-3">
                     <div 

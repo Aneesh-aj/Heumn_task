@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import FooterLayout from "../../layout/FooterLayout";
+import { useSelector } from "react-redux";
 
 const FooterThree = () => {
     const [isHovered, setIsHovered] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
-
+    const color = useSelector((state) => state.sectionStorage.colorPalete.color)
+    const font = useSelector((state) => state.sectionStorage.addedFont);
     const openModal = () => {
         setIsModalOpen(true);
     };
@@ -16,18 +18,19 @@ const FooterThree = () => {
     return (
         <footer 
             className="w-full bg-gray-900 text-white py-8 relative hover:ring-2 ring-blue-500" 
+            style={{backgroundColor:color ? color[2]:'white',color:color ? color[1]:'white',fontFamily:font ?font.siteFont.title :""}}
             onMouseEnter={() => setIsHovered(true)} 
             onMouseLeave={() => setIsHovered(false)}
         >
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 ps-8">
                 <div>
-                    <h3 className="text-lg font-bold">Company</h3>
+                    <h3 className="text-lg font-bold" >Company</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
                 
                 <div>
-                    <h3 className="text-lg font-bold">Services</h3>
-                    <ul>
+                    <h3 >Services</h3>
+                    <ul >
                         <li><a href="#">Web Design</a></li>
                         <li><a href="#">SEO</a></li>
                         <li><a href="#">Marketing</a></li>
@@ -36,12 +39,12 @@ const FooterThree = () => {
                 </div>
                 <div>
                     <h3 className="text-lg font-bold">Contact Us</h3>
-                    <p>Email: info@company.com</p>
-                    <p>Phone: +123 456 789</p>
+                    <p >Email: info@company.com</p>
+                    <p >Phone: +123 456 789</p>
                 </div>
             </div>
             <div className="text-center mt-8">
-                <p>&copy; 2024 Your Company. All rights reserved.</p>
+                <p >&copy; 2024 Your Company. All rights reserved.</p>
             </div>
 
             {isHovered && (

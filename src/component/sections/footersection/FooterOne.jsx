@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import FooterLayout from "../../layout/FooterLayout";
+import { useSelector } from "react-redux";
 
 const FooterOne = () => {
     const [isHovered, setIsHovered] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const color = useSelector((state) => state.sectionStorage.colorPalete.color)
+    const font = useSelector((state) => state.sectionStorage.addedFont);
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -16,11 +19,13 @@ const FooterOne = () => {
     return (
         <footer 
             className="w-full bg-gray-800 text-white p-4 relative hover:ring-2 ring-blue-500" 
+            style={{backgroundColor:color ? color[2]:'white',color:color ? color[1]:'white',fontFamily:font ?font.siteFont.title :""}}
+
             onMouseEnter={() => setIsHovered(true)} 
             onMouseLeave={() => setIsHovered(false)}
         >
             <div className="flex justify-between items-center">
-                <h2 className="text-xl font-bold">Your Company</h2>
+                <h2 className="text-xl font-bold" >Your Company</h2>
                 <ul className="flex space-x-6">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>

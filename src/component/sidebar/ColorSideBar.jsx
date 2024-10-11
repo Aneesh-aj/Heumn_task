@@ -42,7 +42,7 @@ const ColorSideBar = () => {
 
     return (
         <>
-            <div className="w-full p-14 mt-2 bg-white h-full flex flex-col gap-4 shadow ps-[13%]  mb-[4rem]">
+            <div className="w-full p-14 mt-2 bg-white h-full flex flex-col gap-4 shadow ps-[13%]  ">
                
                 <h2 className="text-2xl font-extrabold font-clarkson" >Choose a color palette</h2>
                 <p className="text-[12px] text-gray-500">These custom palettes were curated by our designers. You can always change up your colors later.</p>
